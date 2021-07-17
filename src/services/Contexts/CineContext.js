@@ -11,9 +11,9 @@ export const CineProvider = ({children}) => {
   async function searchMovies(data) {
     console.log(`${data } siim`);
 
-    const response = await api.get(`s=${data}`);
+    const response = await api.get(`${data}`);
 
-    setMovies(response.data);
+    setMovies(response.data.Search);
   }
 
   console.log(movies);
