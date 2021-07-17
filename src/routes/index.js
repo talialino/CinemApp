@@ -1,13 +1,10 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {View, Text, StatusBar} from 'react-native';
+import {StatusBar} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import {color} from 'react-native-reanimated';
 import SearchScreen from '../screens/Search';
 import FavoritesScreen from '../screens/Favorites';
-
-// import AuthContext from '../state/contexts/auth';
 
 const Tab = createBottomTabNavigator();
 
@@ -27,7 +24,7 @@ export default function Routes() {
           component={SearchScreen}
           options={{
             tabBarLabel: 'Buscar',
-            tabBarIcon: () => <Icon name="search" size={20} />,
+            tabBarIcon: () => <Icon name="search" color="#000" size={20} />,
           }}
         />
         <Tab.Screen

@@ -1,8 +1,19 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View, Text} from 'react-native';
+import {ScrollView} from 'react-native-gesture-handler';
 
-// import { Container } from './styles';
+import styles from './styles';
 
 export default function Favorites() {
-  return <View />;
+  return (
+    <>
+      <ScrollView style={styles.Container}>
+        <Text style={styles.Title}>Cinema APP - Favoritos</Text>
+        <Text style={styles.SubTitle}>
+          Bem vindo ao mundo espetacular do cinema!
+        </Text>
+        <View />
+      </ScrollView>
+    </>
+  );
 }
