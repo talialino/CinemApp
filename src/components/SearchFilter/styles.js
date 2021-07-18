@@ -19,7 +19,7 @@ export default StyleSheet.create({
   Button: {
     height: hp('6.5%'),
     width: wp('20%'),
-    backgroundColor: '#647687',
+    backgroundColor: '#11B621',
     marginLeft: wp('2%'),
 
     borderRadius: hp('0.8%'),

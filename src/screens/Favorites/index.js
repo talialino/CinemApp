@@ -1,13 +1,13 @@
 /* eslint-disable no-return-assign */
 // eslint-disable-next-line no-return-assign
-import React, {useState, useContext, useEffect} from 'react';
-import {View, Text} from 'react-native';
+import React, {useContext, useEffect} from 'react';
+import {View, Text, Image} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useIsFocused} from '@react-navigation/native';
 
 import styles from './styles';
-import {ListMovies, StarBlue} from '../../components';
+import {StarBlue} from '../../components';
 
 import cineContext from '../../services/Contexts/CineContext';
 
@@ -28,7 +28,7 @@ export default function Favorites() {
   function handleFavoritesImdbIDs(state, imdbIDs) {
     if (state) {
       favorites.map((item) =>
-        item.imdbID == imdbIDs ? favorites.push(item.imdbID) : null
+        item.imdbID === imdbIDs ? favorites.push(item.imdbID) : null
       );
     }
     if (!state) {
@@ -49,11 +49,9 @@ export default function Favorites() {
         {moviesFavoriteds.map((item) =>
           item.map((data) => (
             <View style={styles.ListContainer}>
-              <Icon
-                style={styles.IconCircle}
-                name="checkbox-blank-circle"
-                size={28}
-              />
+              <Image style={styles.Poster} source={{uri: data.Poster}} />
+              {console.log(data.Poster)}
+
               <View style={styles.Info}>
                 <Text style={styles.ListTitle}>{data.Title}</Text>
                 <Text style={styles.ListTitle}>Ano: {data.Year}</Text>

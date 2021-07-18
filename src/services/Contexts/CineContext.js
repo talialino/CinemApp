@@ -1,5 +1,4 @@
-import React, {createContext, useState, useEffect} from 'react';
-
+import React, {createContext, useState} from 'react';
 import api from '../Api';
 
 const cineContext = createContext({movies: {}});
@@ -9,9 +8,13 @@ export const CineProvider = ({children}) => {
   const favorites = [];
 
   async function searchMovies(data) {
-    const response = await api.get(`${data}`);
+    try {
+      const response = await api.get(`${data}`);
 
-    setMovies(response.data.Search);
+      setMovies(response.data.Search);
+    } catch (err) {
+      console.log(err, err.response);
+    }
   }
 
   return (

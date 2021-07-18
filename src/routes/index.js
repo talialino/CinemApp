@@ -15,16 +15,16 @@ export default function Routes() {
       <Tab.Navigator
         tabBarOptions={{
           labelPosition: 'beside-icon',
-          activeTintColor: '#33FFFF',
-          activeBackgroundColor: '#647687',
-          inactiveBackgroundColor: '#647687',
+          activeTintColor: '#11B621',
+          activeBackgroundColor: '#1F2923',
+          inactiveBackgroundColor: '#1F2923',
         }}>
         <Tab.Screen
           name="Search"
           component={SearchScreen}
           options={{
             tabBarLabel: 'Buscar',
-            tabBarIcon: () => <Icon name="search" color="#000" size={20} />,
+            tabBarIcon: () => <Icon name="search" color="#FFF" size={20} />,
           }}
         />
         <Tab.Screen

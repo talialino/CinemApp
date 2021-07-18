@@ -11,7 +11,7 @@ export function StarWhite({imdbID, statePressed}) {
   // console.log(isPressed);
 
   const handleIsPressed = (value) =>
-    isPressed ? (value = '#007FF8') : (value = '#D1D1D1');
+    isPressed ? (value = '#E5D549') : (value = '#D1D1D1');
 
   function handleState() {
     setIsPressed((_isPressed) => (_isPressed = !isPressed));

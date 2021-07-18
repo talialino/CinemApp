@@ -13,19 +13,16 @@ export default function Search() {
   const {movies, searchMovies, favorites} = useContext(cineContext);
 
   const [filterText, setFilterText] = useState('');
-
   const handleTextFilter = (text) => setFilterText((state) => (state = text));
 
   function handleSearchMovies() {
     searchMovies(filterText);
   }
 
-  //  console.log(favorites);
-
   function handleFavoritesImdbIDs(state, imdbIDs) {
     if (state) {
       movies.map((item) =>
-        item.imdbID == imdbIDs ? favorites.push(item.imdbID) : null
+        item.imdbID === imdbIDs ? favorites.push(item.imdbID) : null
       );
     }
     if (!state) {
@@ -52,18 +49,3 @@ export default function Search() {
     </View>
   );
 }
-
-// data.forEach((element, index, array) => {
-// console.log(element.x); // 100, 200, 300
-// console.log(index); // 0, 1, 2
-// console.log(array); // same myArray object 3 times
-
-// if (state) {
-// if (element.imdbID == imdbIDs) favorites.push(element.imdbID);
-// } else {
-//   const position = favorites.indexOf(imdbIDs);
-//   if (position > -1) {
-//     if (element.imdbID == imdbIDs) favorites.splice(position, 1);
-//   }
-// }
-// });
