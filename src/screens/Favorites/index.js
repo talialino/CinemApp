@@ -50,8 +50,6 @@ export default function Favorites() {
           item.map((data) => (
             <View style={styles.ListContainer}>
               <Image style={styles.Poster} source={{uri: data.Poster}} />
-              {console.log(data.Poster)}
-
               <View style={styles.Info}>
                 <Text style={styles.ListTitle}>{data.Title}</Text>
                 <Text style={styles.ListTitle}>Ano: {data.Year}</Text>
