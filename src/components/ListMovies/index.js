@@ -1,14 +1,14 @@
-import React, {useState, useEffect} from 'react';
-import {View, Pressable, Text} from 'react-native';
-import {ScrollView} from 'react-native-gesture-handler';
+/* eslint-disable import/no-cycle */
+/* eslint-disable react/prop-types */
+import React, {useContext, useEffect} from 'react';
+import {View, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import {StarCheck} from '..';
+import {StarWhite} from '..';
 
 import styles from './styles';
 
-export function ListMovies({data}) {
-
+export function ListMovies({data, favoritesImdbIDs}) {
   return (
     <View>
       {data?.map((item) => (
@@ -22,7 +22,7 @@ export function ListMovies({data}) {
             <Text style={styles.Title}>{item.Title}</Text>
             <Text style={styles.Title}>Ano: {item.Year}</Text>
           </View>
-          <StarCheck id={item.imdbID} />
+          <StarWhite imdbID={item.imdbID} statePressed={favoritesImdbIDs} />
         </View>
       ))}
     </View>

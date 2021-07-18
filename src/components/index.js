@@ -1,3 +1,4 @@
 export * from './SearchFilter';
 export * from './ListMovies';
-export * from './StarCheck';
+export * from './StarWhite';
+export * from './StarBlue';

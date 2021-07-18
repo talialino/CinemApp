@@ -1,8 +1,8 @@
+/* eslint-disable no-return-assign */
 // eslint-disable-next-line no-return-assign
 import React, {useState, useContext} from 'react';
-import {View, Pressable, Text} from 'react-native';
+import {View, Text} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import styles from './styles';
 import {SearchFilter, ListMovies} from '../../components';
@@ -10,7 +10,7 @@ import {SearchFilter, ListMovies} from '../../components';
 import cineContext from '../../services/Contexts/CineContext';
 
 export default function Search() {
-  const {movies, searchMovies} = useContext(cineContext);
+  const {movies, searchMovies, favorites} = useContext(cineContext);
 
   const [filterText, setFilterText] = useState('');
 
@@ -18,6 +18,22 @@ export default function Search() {
 
   function handleSearchMovies() {
     searchMovies(filterText);
+  }
+
+  //  console.log(favorites);
+
+  function handleFavoritesImdbIDs(state, imdbIDs) {
+    if (state) {
+      movies.map((item) =>
+        item.imdbID == imdbIDs ? favorites.push(item.imdbID) : null
+      );
+    }
+    if (!state) {
+      const index = favorites.indexOf(imdbIDs);
+      if (index > -1) {
+        favorites.splice(index, 1);
+      }
+    }
   }
 
   return (
@@ -31,8 +47,23 @@ export default function Search() {
         onPress={handleSearchMovies}
       />
       <ScrollView>
-        <ListMovies data={movies} />
+        <ListMovies data={movies} favoritesImdbIDs={handleFavoritesImdbIDs} />
       </ScrollView>
     </View>
   );
 }
+
+// data.forEach((element, index, array) => {
+// console.log(element.x); // 100, 200, 300
+// console.log(index); // 0, 1, 2
+// console.log(array); // same myArray object 3 times
+
+// if (state) {
+// if (element.imdbID == imdbIDs) favorites.push(element.imdbID);
+// } else {
+//   const position = favorites.indexOf(imdbIDs);
+//   if (position > -1) {
+//     if (element.imdbID == imdbIDs) favorites.splice(position, 1);
+//   }
+// }
+// });

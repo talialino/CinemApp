@@ -33,6 +33,11 @@ export default function Routes() {
           options={{
             tabBarLabel: 'Favoritos',
             tabBarIcon: () => <Icon name="star" color="#FFF" size={20} />,
+            lazy: false,
+            tabBarOnPress: (scene, jumpToIndex) => {
+              console.log('onPress:', scene.route);
+              jumpToIndex(scene.index);
+            },
           }}
         />
       </Tab.Navigator>
